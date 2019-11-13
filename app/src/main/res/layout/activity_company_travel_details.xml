@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CompanyTravelDetailsActivity">
+
+        <include
+            android:id="@+id/details_app_bar_layout"
+            layout="@layout/app_bar_layout"></include>
+        <RelativeLayout
+            android:id="@+id/inner_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/details_app_bar_layout"
+            android:background="@color/colorExtra">
+
+            <TextView
+                android:id="@+id/button_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Set Trip"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/point_from"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/button_display"
+                android:hint="From"
+                android:textColorHint="@android:color/white"
+                android:background="@drawable/buttons_background"
+                android:padding="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+            <EditText
+                android:id="@+id/point_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/point_from"
+                android:hint="Destination"
+                android:textColorHint="@android:color/white"
+                android:background="@drawable/buttons_background"
+                android:padding="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+            <EditText
+                android:id="@+id/name_of_driver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/point_to"
+                android:hint="Driver"
+                android:textColorHint="@android:color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttons_background"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/driver_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/avatar_sm"
+                android:layout_below="@+id/name_of_driver"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp">
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <EditText
+                android:id="@+id/number_plate_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Number Plate"
+                android:layout_below="@+id/driver_image"
+                android:padding="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@android:color/white"
+                android:background="@drawable/buttons_background"/>
+            <Button
+                android:id="@+id/time_of_departure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time of Departure"
+                android:padding="20dp"
+                android:layout_below="@+id/number_plate_company"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/inputs_and_outputs"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/display_time_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04:00"
+                android:layout_below="@+id/time_of_departure"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+
+            <EditText
+                android:id="@+id/price_of_journey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/display_time_view"
+                android:background="@drawable/buttons_background"
+                android:padding="20dp"
+                android:hint="Amount | Price of Journey"
+                android:textColorHint="@android:color/white"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:inputType="number"
+                android:layout_marginEnd="10dp"
+                />
+
+            <Button
+                android:id="@+id/confirm_journey_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="18dp"
+                android:background="@drawable/inputs_and_outputs"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@+id/price_of_journey"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

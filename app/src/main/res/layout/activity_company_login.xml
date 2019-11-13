@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Company.CompanyLoginActivity">
+<include
+    android:id="@+id/page_toolbar"
+    layout="@layout/app_bar_layout">
+
+</include>
+    <EditText
+        android:id="@+id/company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_toolbar"
+        android:padding="15dp"
+        android:hint="Company Name"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:textColorHint="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/inputs_background"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/company_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_name"
+        android:padding="15dp"
+        android:hint="Manager"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:textColorHint="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/inputs_background"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/company_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_coordinator"
+        android:padding="15dp"
+        android:hint="Dedicated Phone Number"
+        android:inputType="phone"
+        android:textSize="20sp"
+        android:textColorHint="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/inputs_background"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/confirm_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/colorExtra"
+        android:text="Confirm"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        />
+
+
+</RelativeLayout>

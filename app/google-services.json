@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "711659952951",
+    "firebase_url": "https://musabazze.firebaseio.com",
+    "project_id": "musabazze",
+    "storage_bucket": "musabazze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711659952951:android:c09436b6e2cc10059a18b2",
+        "android_client_info": {
+          "package_name": "com.mobilesoftware.musabazze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711659952951-u6mq965ivobi11897k55fko0nntgn8v4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilesoftware.musabazze",
+            "certificate_hash": "7e2057af765d72545cddb68da017617fafebef91"
+          }
+        },
+        {
+          "client_id": "711659952951-47cmu391b873e0327194a3100ofa45ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC83XFti73nf-ElEkzyTEWccFyLzDMZDwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711659952951-47cmu391b873e0327194a3100ofa45ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
