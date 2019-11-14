@@ -5,28 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Company.CompanyLoginActivity">
-<include
-    android:id="@+id/page_toolbar"
-    layout="@layout/app_bar_layout">
+    tools:context=".CompanyRegisterActivity">
 
-</include>
-    <TextView
-        android:id="@+id/register_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/page_toolbar"
-        android:text="Make Passenger Loading Easier..."
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/colorPrimary"/>
+    <include
+        android:id="@+id/register_app_bar"
+        layout="@layout/app_bar_layout"></include>
+
     <EditText
-        android:id="@+id/company_email"
+        android:id="@+id/company_email_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_comment"
+        android:layout_below="@+id/register_app_bar"
         android:padding="15dp"
         android:hint="Email"
         android:textSize="20sp"
@@ -39,10 +28,10 @@
         android:background="@drawable/inputs_background"
         android:layout_marginTop="50dp"/>
     <EditText
-        android:id="@+id/company_password"
+        android:id="@+id/company_password_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_email"
+        android:layout_below="@+id/company_email_reg"
         android:padding="15dp"
         android:hint="Password"
         android:textSize="20sp"
@@ -56,27 +45,27 @@
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/create_account_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_password"
+        android:layout_below="@+id/company_password_reg"
         android:padding="20dp"
         android:layout_marginBottom="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textSize="20sp"
         android:background="@color/colorExtra"
-        android:text="LOGIN"
+        android:text="Create Account"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/need_account"
+        android:id="@+id/already_have_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Need New Account?"
-        android:layout_below="@+id/login_btn"
+        android:text="Already Have Account?"
+        android:layout_below="@+id/create_account_btn"
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"

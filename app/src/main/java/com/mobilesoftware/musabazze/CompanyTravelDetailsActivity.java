@@ -58,7 +58,7 @@ public class CompanyTravelDetailsActivity extends AppCompatActivity implements T
 
        /* String apiKey  = "AIzaSyC5b87GW1jzdGMnCUUeXpMEsMK50kVVaRU";*/
         BusTravelTrip = FirebaseDatabase.getInstance().getReference().child("BusTravelTripDetails");
-        DriverImageRef = FirebaseStorage.getInstance().getReference().child("Driver Images");
+        DriverImageRef = FirebaseStorage.getInstance().getReference().child("DriverImages");
 
 
 
@@ -96,7 +96,7 @@ public class CompanyTravelDetailsActivity extends AppCompatActivity implements T
        Departure = PointFrom.getText().toString();
        Destination = DestinationPoint.getText().toString();
        NameOfDriver = DriverName.getText().toString();
-       VehicleNumberPlate = NumberPlate.toString();
+       VehicleNumberPlate = NumberPlate.getText().toString();
        JourneyPrice = PriceOfJourney.getText().toString();
        TimeOfDepart = DisplayTime.getText().toString();
 
@@ -182,7 +182,7 @@ public class CompanyTravelDetailsActivity extends AppCompatActivity implements T
     private void saveTravelInfoToDatabase() {
         HashMap<String,Object> travelMap = new HashMap<>();
         travelMap.put("Pid",travelKey);
-        travelMap.put("Destination",Departure);
+        travelMap.put("Destination",Destination);
         travelMap.put("NameOfDriver",NameOfDriver);
         travelMap.put("VehicleNumberPlate",VehicleNumberPlate);
         travelMap.put("JourneyPrice",JourneyPrice);

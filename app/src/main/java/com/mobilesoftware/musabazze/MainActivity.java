@@ -1,6 +1,7 @@
 package com.mobilesoftware.musabazze;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,20 +12,23 @@ import com.mobilesoftware.musabazze.Company.CompanyLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button TravelCompanyBtn,PassengerBtn,PersonalHire;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mToolbar = findViewById(R.id.page_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Company Registration");
+
         InitializeFields();
         TravelCompanyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //SendUSerToCompanyActivity();
-                Intent intent = new Intent(MainActivity.this, CompanyTravelDetailsActivity.class);
-                startActivity(intent);
-                finish();
+                SendUSerToCompanyActivity();
+
             }
         });
     }

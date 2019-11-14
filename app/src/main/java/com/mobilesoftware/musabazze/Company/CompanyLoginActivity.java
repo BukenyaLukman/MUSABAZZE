@@ -10,24 +10,29 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.mobilesoftware.musabazze.CompanyRegisterActivity;
 import com.mobilesoftware.musabazze.CompanyTravelDetailsActivity;
 import com.mobilesoftware.musabazze.R;
+import com.mobilesoftware.musabazze.SetTravelRoutesActivity;
 
 import java.util.HashMap;
 
 public class CompanyLoginActivity extends AppCompatActivity {
-    private EditText CompanyName,CompManager,CompPhoneNumber;
-    private String CompanyNameInput,CompanyManagerInput,CompanyNumberInput,CompanyKey;
-    private Button ConfirmButton;
+    private EditText CompanyEmail,CompanyPassword;
+    private Button LoginBtn;
+    private TextView NeedNewAccount;
     private ProgressDialog loadingBar;
-    private DatabaseReference InfoRef;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -35,76 +40,88 @@ public class CompanyLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_login);
 
-        InfoRef = FirebaseDatabase.getInstance().getReference().child("Companies");
+        mAuth = FirebaseAuth.getInstance();
 
         initializeFields();
 
-        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveInfoToDatabase();
+                AllowUserToLogin();
+            }
+        });
+
+        NeedNewAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SendUserToRegisterActivity();
             }
         });
     }
 
-    private void saveInfoToDatabase() {
-       CompanyNameInput = CompanyName.getText().toString().toUpperCase();
-       CompanyManagerInput = CompManager.getText().toString().toUpperCase();
-       CompanyNumberInput = CompPhoneNumber.getText().toString();
-       if (TextUtils.isEmpty(CompanyNameInput)){
-           Toast.makeText(this, "Please Provide Company Name", Toast.LENGTH_SHORT).show();
-       }else if(TextUtils.isEmpty(CompanyManagerInput)){
-           Toast.makeText(this, "Please provide the Manager's Name", Toast.LENGTH_SHORT).show();
-       }else if(TextUtils.isEmpty(CompanyNumberInput)){
-           Toast.makeText(this, "Please provide the dedicated Phone Number", Toast.LENGTH_SHORT).show();
-       }else{
-            storeCompanyInfoToDatabase();
-       }
+    private void AllowUserToLogin() {
+        String email = CompanyEmail.getText().toString();
+        String password = CompanyPassword.getText().toString();
 
-    }
+        if(TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this, "Please enter your valid email...", Toast.LENGTH_SHORT).show();
+        }
+        if(TextUtils.isEmpty(password))
+        {
+            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
 
-    private void storeCompanyInfoToDatabase() {
-        loadingBar.setTitle("Saving Info...");
-        loadingBar.setMessage("Please wait...");
-        loadingBar.setCanceledOnTouchOutside(false);
-        loadingBar.show();
-
-        CompanyKey = CompanyNameInput + CompanyNumberInput;
-
-        HashMap<String,Object> companyInfoMap = new HashMap<>();
-        companyInfoMap.put("CompanyName",CompanyNameInput);
-        companyInfoMap.put("CompanyManager",CompanyManagerInput);
-        companyInfoMap.put("CompanyNumber",CompanyNumberInput);
-
-        InfoRef.child(CompanyKey).updateChildren(companyInfoMap)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
+        }else{
+            loadingBar.setTitle("Signing in...");
+            loadingBar.setMessage("Please wait...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
 
 
-                            Intent intent = new Intent(CompanyLoginActivity.this, CompanyTravelDetailsActivity.class);
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        SendCompanyToSetTripActivity();
+                        Toast.makeText(CompanyLoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        loadingBar.dismiss();
 
-                            loadingBar.dismiss();
-                            Toast.makeText(CompanyLoginActivity.this, CompanyNameInput +" registration successful", Toast.LENGTH_SHORT).show();
-                        }else {
-                            loadingBar.dismiss();
-                            String message = task.getException().toString();
-                            Toast.makeText(CompanyLoginActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
-                        }
+
+                    }else{
+                        String message = task.getException().toString();
+                        Toast.makeText(CompanyLoginActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                        loadingBar.dismiss();
+
+
                     }
-                });
+
+
+                }
+            });
+        }
+    }
+
+    private void SendCompanyToSetTripActivity() {
+        Intent homeIntent = new Intent(CompanyLoginActivity.this,CompanyTravelDetailsActivity.class);
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(homeIntent);
 
     }
+
+
+    private void SendUserToRegisterActivity() {
+        Intent registerIntent = new Intent(CompanyLoginActivity.this, CompanyRegisterActivity.class);
+        startActivity(registerIntent);
+
+    }
+
 
     private void initializeFields() {
-        CompanyName = findViewById(R.id.company_name);
-        CompManager = findViewById(R.id.company_coordinator);
-        CompPhoneNumber = findViewById(R.id.company_contact);
-        ConfirmButton = findViewById(R.id.confirm_info_btn);
+        CompanyEmail = findViewById(R.id.company_email);
+        CompanyPassword = findViewById(R.id.company_password);
+        LoginBtn = findViewById(R.id.login_btn);
+        NeedNewAccount = findViewById(R.id.need_account);
         loadingBar = new ProgressDialog(this);
     }
 }
