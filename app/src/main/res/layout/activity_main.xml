@@ -5,120 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/welcome_note"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/image_view_one"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttons_background"
-        android:text="Make Choice of Your Means"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp"
+        android:src="@drawable/bus_icon"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
         />
-    <RelativeLayout
-        android:id="@+id/relative_layout_one"
+
+    <EditText
+        android:id="@+id/user_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome_note">
-        <ImageView
-            android:id="@+id/bus_image_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bus_icon"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-        <TextView
-            android:id="@+id/motivation_note"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Experience travelling at Convenience"
-            android:layout_below="@+id/bus_image_icon"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-    </RelativeLayout>
+        android:hint="Email"
+        android:padding="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/image_view_one"
+        android:background="@drawable/inputs"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/user_email"
+        android:background="@drawable/inputs"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/company_btn"
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Travel Company ?"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:layout_below="@+id/relative_layout_one"
-        android:background="@color/colorPrimary"
+        android:text="Login"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold|italic"/>
-    <Button
-        android:id="@+id/passenger_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Passenger ?"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:layout_below="@+id/company_btn"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold|italic"/>
-    <TextView
-        android:id="@+id/or_statement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OR"
-        android:textSize="20dp"
-        android:layout_below="@+id/passenger_btn"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:padding="20dp"
         android:textStyle="bold"
-        android:textColor="@color/colorExtra"/>
-    <Button
-        android:id="@+id/personal_hire"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Private Hire ?"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/user_password"
+        android:background="@drawable/buttons"
         android:textSize="20dp"
-        android:layout_below="@+id/or_statement"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold|italic"/>
-    <RelativeLayout
-        android:id="@+id/bottom_picture_layout"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/personal_hire"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="50dp"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/bus_icon"
-                android:layout_marginStart="10dp"/>
-            <ImageView
-                android:layout_width="190dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/another_bus"/>
+        android:layout_marginTop="20dp"/>
 
-        </LinearLayout>
-
-
-    </RelativeLayout>
 </RelativeLayout>

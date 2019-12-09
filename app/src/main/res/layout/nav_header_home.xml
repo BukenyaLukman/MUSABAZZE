@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@color/colorPrimary"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:id="@+id/bus_logo"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:src="@drawable/bus_icon"
+       android:layout_gravity="center"
+       android:layout_marginTop="10dp">
+
+   </de.hdodenhof.circleimageview.CircleImageView>
+
+   <TextView
+       android:id="@+id/bus_company_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Company Name"
+       android:textSize="20sp"
+       android:layout_gravity="center"
+       android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/company_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slogan"
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"/>
+
+</LinearLayout>

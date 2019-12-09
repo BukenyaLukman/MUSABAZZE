@@ -13,10 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompanyRegisterActivity"></activity>
-        <activity android:name=".SetTravelRoutesActivity" />
-        <activity android:name=".CompanyTravelDetailsActivity" />
-        <activity android:name=".Company.CompanyLoginActivity" />
+        <activity
+            android:name=".AddUserActivity"
+            android:parentActivityName=".CreateUsersActivity" />
+        <activity
+            android:name=".ViewBookedClientsActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".ManageRoutesActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".CreateUsersActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".ScheduledTripsActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

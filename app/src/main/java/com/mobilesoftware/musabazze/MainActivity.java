@@ -1,49 +1,45 @@
 package com.mobilesoftware.musabazze;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
-import com.mobilesoftware.musabazze.Company.CompanyLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button TravelCompanyBtn,PassengerBtn,PersonalHire;
-    private Toolbar mToolbar;
-
+    private EditText CompanyEmailLogin,CompanyPassword;
+    private Button LoginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = findViewById(R.id.page_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Company Registration");
+        initializeFields();
 
-        InitializeFields();
-        TravelCompanyBtn.setOnClickListener(new View.OnClickListener() {
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendUSerToCompanyActivity();
-
+                SendUserToHomeActivity();
             }
         });
+
     }
 
-    private void SendUSerToCompanyActivity() {
-        Intent CompanyIntent = new Intent(MainActivity.this, CompanyLoginActivity.class);
-        startActivity(CompanyIntent);
-        finish();
+    private void SendUserToHomeActivity() {
+        Intent loginIntent = new Intent(MainActivity.this,HomeActivity.class);
+        //loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        //finish();
     }
 
-
-    private void InitializeFields(){
-        TravelCompanyBtn = findViewById(R.id.company_btn);
-        PassengerBtn = findViewById(R.id.passenger_btn);
-        PersonalHire = findViewById(R.id.personal_hire);
+    private void initializeFields() {
+        CompanyEmailLogin = findViewById(R.id.user_email);
+        CompanyPassword = findViewById(R.id.user_password);
+        LoginBtn =findViewById(R.id.login_btn);
     }
 
 }

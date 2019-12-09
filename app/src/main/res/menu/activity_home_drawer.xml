@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_scheduled_trips"
+            android:icon="@drawable/scheduled_trips"
+            android:title="Scheduled Trips"
+            android:iconTint="@color/colorPrimary"/>
+        <item
+            android:id="@+id/nav_create_users"
+            android:icon="@drawable/create_user_account_24dp"
+            android:title="Create Users"
+            android:iconTint="@color/colorPrimary"/>
+        <item
+            android:id="@+id/nav_manage_routes"
+            android:icon="@drawable/manage_routes_24dp"
+            android:title="Manage Routes"
+            android:iconTint="@color/colorPrimary"/>
+        <item
+            android:id="@+id/nav_booked_clients"
+            android:icon="@drawable/booked_clients_24dp"
+            android:title="View Booked Clients"
+            android:iconTint="@color/colorPrimary"/>
+    </group>
+</menu>
